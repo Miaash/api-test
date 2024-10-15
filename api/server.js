@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
+app.use(cors());
 app.use(express.json()); // JSON 요청 본문을 파싱하기 위한 미들웨어
 
 // nodemon을 설치하고 이를 통해
@@ -18,8 +20,8 @@ let users = [
 ];
 
 let todos = [
-  { id: 1, contents: "밥먹기", isComplete: false },
-  { id: 2, contents: "똥싸기", isComplete: true },
+  { id: 1, contents: "밥먹기", isCompleted: false },
+  { id: 2, contents: "똥싸기", isCompleted: true },
 ];
 
 app.get("/users", (req, res) => {
@@ -61,3 +63,5 @@ app.delete("/users/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
