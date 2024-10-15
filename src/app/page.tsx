@@ -9,10 +9,11 @@ type todoType = {
 export default function Home() {
   const [todos, setTodos] = useState<todoType[]>([]);
   useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_API_BASE_URL);
     const fetchTodos = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_SERVER_URL}/todos`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/todos`
         );
         if (!res.ok) {
           throw new Error(`${res.status}`);

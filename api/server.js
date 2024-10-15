@@ -28,7 +28,7 @@ app.get("/users", (req, res) => {
   res.json(users);
 });
 
-app.get("/todos", (req, res) => {
+app.get("/api/todos", (req, res) => {
   res.json(todos);
 });
 
