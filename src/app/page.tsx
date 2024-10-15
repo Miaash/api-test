@@ -12,7 +12,7 @@ export default function Home() {
     const fetchTodos = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/todos`
+          `${process.env.NEXT_PUBLIC_API_SERVER_URL}/todos`
         );
         if (!res.ok) {
           throw new Error(`${res.status}`);
